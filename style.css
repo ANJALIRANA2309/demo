@@ -1,0 +1,508 @@
+/* ================= MEDIA GALLERY ================= */
+.gallery {
+  padding: 60px 40px;
+  background: #f5f7fa;
+  text-align: center;
+}
+
+.gallery h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #2376c8;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 images per row */
+  gap: 20px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.07);
+  box-shadow: 0 15px 30px rgba(242, 8, 8, 0.25);
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ================= NEWS SECTION ================= */
+.news {
+  padding: 60px 40px;
+  background: #ffffff;
+}
+
+.news h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #4484c5;
+}
+
+.news article {
+  max-width: 800px;
+  margin: 15px auto;
+  padding: 20px 25px;
+  background: #f5f7fa;
+  border-left: 6px solid #d19a49;
+  border-radius: 8px;
+  font-size: 18px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+.coach-card img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  display: block;
+}
+.coach-card img {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.coach-card:hover img {
+  transform: scale(1.08);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+/* ================= PROGRAM IMAGES ================= */
+.program-card img {
+  width: 100%;          /* full width of card */
+  height: 180px;        /* fixed height */
+  object-fit: cover;    /* crop without distortion */
+  border-radius: 8px;   /* smooth corners */
+  margin-bottom: 15px; /* space below image */
+}
+.program-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+.program-card img {
+  transition: transform 0.4s ease;
+}
+
+.program-card:hover img {
+  transform: scale(1.05);
+}
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background: #f4f6f9;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* ================= HEADER ================= */
+header {
+  background: #0d1b2a;
+  color: #fff;
+  padding: 15px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+nav a {
+  color: #fff;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #ffb703;
+}
+
+/* ================= HERO ================= */
+.hero {
+  height: 90vh;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+              url("piv.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.cta button {
+  padding: 12px 28px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 10px;
+  border-radius: 5px;
+}
+
+.primary {
+  background: #ffb703;
+  color: #c51616;
+  font-weight: bold;
+}
+
+.secondary {
+  background: transparent;
+  color: #7d5d5d;
+  border: 2px solid #b99696;
+}
+
+.primary:hover,
+.secondary:hover {
+  opacity: 0.85;
+}
+
+/* ================= HIGHLIGHTS ================= */
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 50px 40px;
+  background: #ceabab;
+}
+
+.highlight-card {
+  background: #3b83ca;
+  padding: 25px;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+/* ================= TESTIMONIALS ================= */
+.testimonials {
+  padding: 60px 40px;
+  text-align: center;
+  background: #97afc7;
+}
+
+.testimonials h2 {
+  margin-bottom: 25px;
+}
+
+.testimonial {
+  display: none;
+  font-style: italic;
+  font-size: 18px;
+}
+
+.testimonial.active {
+  display: block;
+}
+
+/* ================= PROGRAMS ================= */
+.programs {
+  padding: 60px 40px;
+  background: #ad6c6c;
+}
+
+.programs h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.program-card {
+  background: #1b9bab;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.program-card:hover {
+  transform: translateY(-5px);
+}
+
+.program-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.program-card h3 {
+  margin-bottom: 10px;
+  color: #0d1b2a;
+}
+
+/* ================= COACHES ================= */
+.coaches {
+  padding: 60px 40px;
+  background: #04c1e2;
+}
+
+.coaches h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.coach-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.coach-card {
+  background: #fff;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.coach-card img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+/* ================= REGISTER ================= */
+.register {
+  padding: 60px 40px;
+  background: #b3a1c1;
+}
+
+.register h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.register form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.register input {
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.register button {
+  padding: 12px;
+  border: none;
+  background: #92b0cf;
+  color: #9c8ce3;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.register button:hover {
+  background: #924163;
+}
+
+/* ================= EVENTS ================= */
+.events {
+  padding: 60px 40px;
+  background: #88a7ef;
+}
+
+.events ul {
+  max-width: 600px;
+  margin: auto;
+}
+
+.events li {
+  padding: 10px 0;
+  font-weight: 500;
+}
+
+/* ================= GALLERY ================= */
+.gallery {
+  padding: 60px 40px;
+  background: #3191ba;
+}
+
+.gallery h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ================= NEWS ================= */
+.news {
+  padding: 60px 40px;
+  background: #80a1c3;
+  color: palevioletred;
+}
+
+.news article {
+  max-width: 600px;
+  margin: 10px auto;
+  font-weight: 500;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background: #0b141e;
+  color: #f0e1e1;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  nav {
+    display: none;
+  }
+}
+/* ===== HEADER / NAVBAR ===== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #0b1c2d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+.logo {
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #f39c12;
+}
+/* ===== HERO SECTION ===== */
+.hero {
+  height: 100vh;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url("hero-sports.jpg"); /* 👈 add your image here */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.cta button {
+  padding: 12px 25px;
+  border: none;
+  margin: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.primary {
+  background: #f39c12;
+  color: #fff;
+}
+
+.secondary {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.primary:hover,
+.secondary:hover {
+  opacity: 0.85;
+}

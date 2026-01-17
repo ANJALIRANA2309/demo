@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Elite Sports Academy</title>
+
+  <!-- ===== INTERNAL CSS ===== -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      background: #0b1320;
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+
+    /* ================= HEADER ================= */
+    header {
+      background: #050a14;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #00e5ff;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #00e5ff;
+    }
+
+    /* ================= HERO / HOME ================= */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.7)),
+                  url("piv.jpg") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-size: 50px;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #dcdcdc;
+    }
+
+    .cta button {
+      padding: 12px 30px;
+      margin: 0 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    .primary {
+      background: #00e5ff;
+      color: #000;
+      font-weight: bold;
+    }
+
+    .secondary {
+      background: transparent;
+      color: #fff;
+      border: 2px solid #00e5ff;
+    }
+
+    /* ================= SECTIONS ================= */
+    section {
+      padding: 60px 40px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #00e5ff;
+    }
+
+    /* ================= HIGHLIGHTS ================= */
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      background: #101a2e;
+    }
+
+    .highlight-card {
+      background: #0b1320;
+      padding: 25px;
+      text-align: center;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    /* ================= PROGRAMS ================= */
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .program-card {
+      background: #101a2e;
+      border-radius: 12px;
+      padding: 20px;
+      transition: transform 0.3s;
+    }
+
+    .program-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .program-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    /* ================= COACHES ================= */
+    .coach-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+    }
+
+    .coach-card {
+      background: #101a2e;
+      text-align: center;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .coach-card img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    /* ================= REGISTER ================= */
+    .register form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .register input {
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: none;
+    }
+
+    .register button {
+      padding: 12px;
+      background: #00e5ff;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 30px;
+    }
+
+    /* ================= GALLERY ================= */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: #050a14;
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 34px;
+      }
+
+      nav {
+        display: none;
+      }
+    }
+    /* ===== MODAL ===== */
+/* ===== MODAL ===== */
+.modal {
+  display: none; /* ✅ hidden by default */
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.modal-content {
+  background: #101a2e;
+  padding: 30px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 12px;
+  position: relative;
+  text-align: center;
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: none;
+}
+
+.modal-content button {
+  width: 100%;
+  padding: 12px;
+  background: #00e5ff;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+
+  </style>
+  <script>
+  // Join Now button → scroll to registration
+  document.getElementById("joinBtn").onclick = function () {
+    document.getElementById("register").scrollIntoView({
+      behavior: "smooth"
+    });
+  };
+
+  // Book Trial modal
+  const modal = document.getElementById("trialModal");
+  const openBtn = document.getElementById("trialBtn");
+  const closeBtn = document.querySelector(".close");
+
+  openBtn.onclick = () => modal.style.display = "flex";
+  closeBtn.onclick = () => modal.style.display = "none";
+
+  window.onclick = (e) => {
+    if (e.target === modal) modal.style.display = "none";
+  };
+
+  // Trial form submit
+  document.getElementById("trialForm").onsubmit = function (e) {
+    e.preventDefault();
+    alert("Trial booked successfully! Our team will contact you.");
+    modal.style.display = "none";
+    this.reset();
+  };
+</script>
+
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Elite Sports Academy</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#programs">Programs</a>
+    <a href="#coaches">Coaches</a>
+    <a href="#register">Register</a>
+    <a href="#events">Events</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#news">News</a>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Train Like a Champion</h1>
+    <p>Professional coaching • Modern facilities • Proven results</p>
+    <div class="cta">
+  <button class="primary" id="joinBtn">Join Now</button>
+  <button class="secondary" id="trialBtn">Book Trial</button>
+</div>
+
+  </div>
+</section>
+
+
+
+<!-- ================= HIGHLIGHTS ================= -->
+<section class="highlights">
+  <div class="highlight-card">⚽ Football • 🏏 Cricket • 🏀 Basketball</div>
+  <div class="highlight-card">Ages 6 – 25</div>
+  <div class="highlight-card">500+ Students Trained</div>
+  <div class="highlight-card">50+ Championships Won</div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="testimonials">
+  <h2>What Parents Say</h2>
+  <div class="testimonial active">"Best academy for my child!" – Parent A</div>
+  <div class="testimonial">"Professional coaches & great discipline." – Parent B</div>
+  <div class="testimonial">"Amazing facilities & growth." – Parent C</div>
+</section>
+
+<!-- ================= PROGRAMS ================= -->
+<section id="programs" class="programs">
+  <h2>Our Programs</h2>
+  <div class="program-grid">
+    <div class="program-card">
+      <img src="football.webp" alt="">
+      
+      <h3>Football</h3>
+      <p>Age: 8–18</p>
+      <p>Level: Beginner – Advanced</p>
+      <p>Schedule: Mon–Fri</p>
+      <p>Coach: John Smith</p>
+      <p>Fees: $100/month</p>
+    </div>
+
+    <div class="program-card">
+      <img src="crik.jpg" alt="">
+      <h3>Cricket</h3>
+      <p>Age: 10–22</p>
+      <p>Level: Intermediate – Advanced</p>
+      <p>Schedule: Tue–Sat</p>
+      <p>Coach: Rahul Verma</p>
+      <p>Fees: $120/month</p>
+    </div>
+
+    <div class="program-card">
+      <img src="basket.jpg" alt="">
+      <h3>Basketball</h3>
+      <p>Age: 6–16</p>
+      <p>Level: Beginner – Intermediate</p>
+      <p>Schedule: Mon–Thu</p>
+      <p>Coach: Alex Jordan</p>
+      <p>Fees: $90/month</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COACHES ================= -->
+<section id="coaches" class="coaches">
+  <h2>Our Coaches</h2>
+  <div class="coach-grid">
+    <div class="coach-card">
+      <img src="john.jpg" alt="">
+      <h3>John Smith</h3>
+      <p>UEFA Certified</p>
+      <p>10+ Years Experience</p>
+    </div>
+    <div class="coach-card">
+      <img src="rahul.jpg" alt="">
+      <h3>Rahul Verma</h3>
+      <p>Former State Player</p>
+      <p>8+ Years Experience</p>
+    </div>
+    <div class="coach-card">
+      <img src="ravi.webp" alt="">
+      <h3> ravi shastri</h3>
+      <p> cricket player</p>
+      <p>8+ years experience</p>
+
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= REGISTRATION ================= -->
+<form onsubmit="event.preventDefault(); alert('Registration submitted successfully!');">
+
+<!-- ================= EVENTS ================= -->
+<section id="events" class="events">
+  <h2>Tournaments & Events</h2>
+  <ul>
+    <li>Inter-Academy Football Cup – June 2026</li>
+    <li>State Cricket League – August 2026</li>
+  </ul>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section id="gallery" class="gallery">
+  <h2>Media Gallery</h2>
+  <div class="gallery-grid">
+    <img src="fotbol.jpg" alt="Football match">
+    <img src="train ss.jpg" alt="Training session">
+    <img src="bas gam.jpg" alt="Basketball game">
+    <img src="fot prc.jpg" alt="Football practice">
+    <img src="cricket tr.jpg" alt="Cricket training">
+    <img src="coach.jpg" alt="Coach with players">
+    <img src="cric eve.avif" alt="Cricket event">
+    <img src="realistic-awar.avif" alt="Award ceremony">
+    <img src="sport eve.jpg" alt="Sports event">
+    <img src="team.jpg" alt="Team celebration">
+  </div>
+</section>
+
+
+<!-- ================= NEWS ================= -->
+<section id="news" class="news">
+  <h2>Academy News</h2>
+  <article>🏆 Football team wins district championship!</article>
+  <article>📢 Summer camp registrations open.</article>
+</section>
+
+<footer>
+  © 2026 Elite Sports Academy
+</footer>
+<!-- ===== BOOK TRIAL MODAL ===== -->
+<div id="trialModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Book Free Trial</h2>
+
+    <form id="trialForm">
+      <input type="text" placeholder="Player Name" required>
+      <input type="number" placeholder="Age" required>
+      <input type="text" placeholder="Sport Interested In" required>
+      <input type="tel" placeholder="Contact Number" required>
+      <button type="submit">Book Trial</button>
+    </form>
+  </div>
+</div>
+
+
+</body>
+</html>
